@@ -40,13 +40,32 @@
             <el-button size="mini" type="primary" disabled>打印</el-button>
           </el-row>
         </div>
+        <div class="condition">
+          <div>
+            <el-select v-model="select" slot="prepend" placeholder="请选择">
+              <el-option label="模糊" value="1"></el-option>
+              <el-option label="标准" value="2"></el-option>
+            </el-select>
+        </div>
       </div>
+      
+    </div>
+    
     </div>
   </div>
 </template>
 
 <script>
-
+export default {
+  data() {
+    return {
+      input1: '',
+      input2: '',
+      input3: '',
+      select: ''
+    }
+  }
+}
 </script>
 
 <style>
@@ -109,6 +128,7 @@
   border-bottom: 1px solid #99d3fb;      
   display: flex;
   align-items: center;  
+  background: #fff;
 }
 .el-row {
   height: 20px;
@@ -120,5 +140,22 @@
 }
 .j {
   margin-left: 10px;
+}
+.el-select .el-input {
+    width: 130px;
+  }
+  .input-with-select .el-input-group__prepend {
+    background-color: #fff;
+  }
+
+.admin_right .condition {
+  height: 30px;
+  border-bottom: 1px solid #99d3fb;      
+  display: flex;
+  align-items: center;
+  background: #fff;
+}
+.el-select {
+  height: 30px;
 }
 </style>
