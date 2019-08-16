@@ -1,87 +1,103 @@
 <template>
-  <el-aside width="200px">
-    <el-row class="tac">
-        <el-col :span="12" class="sidebar">
-            <el-menu
-            default-active="2"
-            class="el-menu-vertical-demo"
-            @open="handleOpen"
-            @close="handleClose"
-            background-color="#e7f5fe"
-            text-color="#000000"
-            active-text-color="#ffd04b">
-            <el-submenu index="1">
-                <template slot="title">
-                <i class="el-icon-location"></i>
-                <span>真人游戏记录</span>
-                </template>
-                <el-menu-item-group>
-                <!-- <template slot="title">分组一</template> -->
-                <el-menu-item index="1-1">百家乐</el-menu-item>
-                <el-menu-item index="1-2">龙虎</el-menu-item>
-                <el-menu-item index="1-3">庄闲牛</el-menu-item>
-                <el-menu-item index="1-4">牛牛</el-menu-item>
-                </el-menu-item-group>
-            </el-submenu>
-            </el-menu>
-        </el-col>
-    </el-row>
-    </el-aside>
+  <div class="inner">
+    <h4>
+      <em style="float:right">
+        <img src="../assets/refresh.png" alt="刷新">
+      </em>
+      <span>我的面板</span>
+    </h4>
+    <el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
+  </div>
 </template>
 
 <script>
 export default {
-    methods: {
-      handleOpen(key, keyPath) {
-        console.log(key, keyPath);
-      },
-      handleClose(key, keyPath) {
-        console.log(key, keyPath);
+  data() {
+    return {
+      data: [{
+        label: '真人游戏记录',
+        children: [{
+          label: '百家乐'
+        }, {
+          label: '龙虎'
+        }, {
+          label: '牛牛'
+        }, {
+          label: '单双'
+        }, {
+          label: '庄闲牛'
+        }
+        
+        ]
+      }, {
+        label: '真人开奖记录',
+        children: [{
+          label: '二级 3-1',
+          children: [{
+            label: '三级 3-1-1'
+          }]
+        }, {
+          label: '二级 3-2',
+          children: [{
+            label: '三级 3-2-1'
+          }]
+        }]
+      }, {
+        label: '对打游戏记录查询',
+        children: [{
+          label: '百家乐'
+        }]
+      }],
+      defaultProps: {
+        children: 'children',
+        label: 'label'
       }
+    };
+  },
+  methods: {
+    handleNodeClick(data) {
+      console.log(data);
     }
   }
+};
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.inner {
+  width: 220px;
+  height: 100%;
+  background-color: #e7f5fe;
+  display: flex;
+  flex-direction: column;
 }
- .el-header, .el-footer {
-    background-color: #1ea4d7;
-    color: #333;
-    text-align: center;
-    line-height: 60px;
-  }
-  
-  .el-aside {
-    background-color: #D3DCE6;
-    color: #333;
-    text-align: center;
-    line-height: 200px;
-  }
-  
-  .el-main {
-    background-color: #E9EEF3;
-    color: #333;
-    text-align: center;
-    line-height: 160px;
-  }
-  
-  body > .el-container {
-    margin-bottom: 40px;
-  }
-  
-  .el-container:nth-child(5) .el-aside,
-  .el-container:nth-child(6) .el-aside {
-    line-height: 260px;
-  }
-  
-  .el-container:nth-child(7) .el-aside {
-    line-height: 320px;
-  }
+.inner h4 {
+  border: 1px solid #069;
+  border-width: 0 1px 1px 0;
+  margin-top: 0;
+  font-size: 14px;
+  text-align: left;
+  height: 28px;
+  line-height: 28px;
+  color: #fff;
+  width: 219px;
+  background-color: #21a9dd;
+}
+.inner h4 img {
+  cursor: pointer;
+  width: 14px;
+  height: 14px;
+  display: block;
+  margin-top: 6px;
+  margin-right: 10px;
+}
+.inner h4 span {
+  background: url(../assets/arrow.png) no-repeat 5px -1px;
+  padding-left: 30px;
+}
+.el-tree {
+  flex: 1;
+  background-color: #e7f5fe;
+  border-right: 1px solid #069;
+}
+
 </style>

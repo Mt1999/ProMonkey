@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <el-container>
-      <el-header>
+      <el-header class="elHeader">
         <!-- 头部 -->
         <Sq-Header></Sq-Header>
         
@@ -11,9 +11,8 @@
         <sq-sidebar></Sq-Sidebar>
 
         <el-main>
-          Main
           <!-- 内容 -->
-
+          <Sq-Main></Sq-Main>
         </el-main>
       </el-container>
     </el-container>
@@ -46,7 +45,7 @@ export default {
 </script>
 
 <style>
-//重置样式
+/* 重置样式 */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -67,7 +66,7 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline;
 }
-// HTML5 display-role reset for older browsers
+ /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
@@ -109,20 +108,22 @@ main {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /* margin-top: 60px; */
+  height: 100%;
+}
+.el-container {
+  height: 100%;
 }
 .el-header, .el-footer {
   background-color: #1ea4d7;
   color: #333;
   text-align: center;
-  line-height: 60px;
+  line-height: 56px;
+  border-bottom: 5px solid #069;
 }
-
-.el-aside {
-  background-color: #D3DCE6;
-  color: #333;
-  text-align: center;
-  line-height: 200px;
+.elHeader {
+  height: 56px;
+  border-top: 1px solid #006599;
 }
 
 .el-main {
@@ -130,6 +131,7 @@ main {
   color: #333;
   text-align: center;
   line-height: 160px;
+  padding: 0;
 }
 
 body > .el-container {
@@ -144,16 +146,14 @@ body > .el-container {
 .el-container:nth-child(7) .el-aside {
   line-height: 320px;
 }
+.el-aside {
+  background-color: #D3DCE6;
+  color: #333;
+  text-align: center;
+  line-height: 200px;
+  width: 220px;
+}
 
 
-.tag {
-  float: right;
-}
-.sidebar {
-  width: 200px;
-  height: 16px;
-}
-.sidebar span {
-  font-size: 12px;
-}
+
 </style>

@@ -60,12 +60,12 @@ export default {
 .header-right {
   width: 500px;
   float: right;
-  height: 60px;
+  height: 56px;
   display: flex;
   flex-direction: column;
 }
 .header-right .hd-top {
-  height: 30px;
+  height: 28px;
   font-size: 12px;
   color: #fff;
   display: flex;
@@ -102,24 +102,43 @@ export default {
 .input-with-select .el-input-group__prepend {
   background-color: #fff;
 }
+.el-select {
+  height: 18px;
+}
+.el-input--suffix {
+  height: 18px;
+}
+>>> .el-input__inner {
+  display: block;
+}
+>>> .el-input--mini .el-input__icon {
+  line-height: 0px;
+  position: absolute;
+  left: -26px;
+}
+
 
 .header-right .hd-bot {
-  height: 30px;
+  height: 28px;
 }
 .header-right .hd-bot ul{
-  height: 30px;
+  height: 28px;
   margin: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 .header-right .hd-bot ul li{
-  height: 26px;
+  height: 22px;
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 12px;
   color: #fff;
-  border: 1px solid red;
+  border: 1px solid #006699;
+  padding: 0 5px;
+  margin-left: 5px;
+  background-color: #027caf;
 }
+
 </style>
